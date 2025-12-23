@@ -1,0 +1,18 @@
+# Node
+node_modules/
+npm-debug.log*
+.DS_Store
+
+# Env
+.env
+
+# Prisma/SQLite
+prisma/dev.db
+prisma/*.db-journal
+
+# Logs
+logs
+*.log
+
+# Coverage
+coverage/

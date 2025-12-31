@@ -82,4 +82,26 @@ router.post(
   }
 );
 
+// Verify token endpoint
+router.get('/verify', async (req, res) => {
+  try {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+    
+    if (!token) {
+      return res.status(401).json(baseResponse({ Success: false, Message: 'No token provided', Object: null, Errors: ['No token provided'] }));
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findOne({ id: decoded.userId });
+    
+    if (!user) {
+      return res.status(401).json(baseResponse({ Success: false, Message: 'User not found', Object: null, Errors: ['User not found'] }));
+    }
+
+    return res.status(200).json(baseResponse({ Success: true, Message: 'Token valid', Object: user, Errors: null }));
+  } catch (err) {
+    return res.status(401).json(baseResponse({ Success: false, Message: 'Invalid token', Object: null, Errors: ['Invalid token'] }));
+  }
+});
+
 module.exports = router;

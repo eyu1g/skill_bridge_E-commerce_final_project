@@ -5,6 +5,7 @@ A complete e-commerce platform with React frontend and Node.js backend, featurin
 ## 🚀 Live Demo
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:3000
+- **🌐 Deployed Version**: [View Live Application](https://your-deployment-url.com) *(Coming Soon)*
 
 ## 📋 Features
 
@@ -215,6 +216,47 @@ The frontend will run at `http://localhost:5173`
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## 🌐 Deployment
+
+### Quick Deploy Options
+
+#### 🎯 **Option 1: Vercel + Render (Recommended)**
+1. **Frontend on Vercel:**
+   ```bash
+   cd frontend
+   npm install -g vercel
+   vercel --prod
+   ```
+
+2. **Backend on Render:**
+   - Go to [render.com](https://render.com)
+   - Connect GitHub repository
+   - Create Web Service
+   - Set environment variables
+
+#### 🎯 **Option 2: Railway (Full Stack)**
+- Go to [railway.app](https://railway.app)
+- Connect GitHub repository
+- Auto-deploy both frontend and backend
+
+#### 🎯 **Option 3: Netlify + Render**
+- Frontend on Netlify
+- Backend on Render
+
+### 📋 **Environment Variables**
+```bash
+# Backend
+MONGODB_URI=mongodb+srv://...
+JWT_SECRET=your-secret-key
+NODE_ENV=production
+
+# Frontend
+VITE_API_URL=https://your-backend-url.com
+```
+
+### 📖 **Detailed Deployment Guide**
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete step-by-step instructions.
 
 ## 🆘 Troubleshooting
 

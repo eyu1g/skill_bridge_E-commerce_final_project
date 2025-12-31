@@ -78,20 +78,96 @@
 
 ## Troubleshooting
 
-### Common Issues:
-1. **CORS Errors:** Update CORS origins in backend
-2. **Database Connection:** Check MONGODB_URI
-3. **Build Failures:** Check package.json scripts
-4. **Environment Variables:** Ensure all are set
+### Common Issues
 
-### Debug Commands:
+#### 1. **Registration Fails on Vercel**
+**Problem**: User registration works locally but fails on deployed site
+**Causes**:
+- CORS configuration blocking requests
+- Environment variables not set correctly
+- API proxy misconfigured
+
+**Solutions**:
 ```bash
-# Check backend logs
-vercel logs
+# Check CORS is configured for your Vercel URL
+# In backend app.js, ensure CORS allows: https://*.vercel.app
+
+# Check environment variables on Vercel
+# VITE_API_URL should be: https://your-backend.onrender.com/
+
+# Check Vite proxy configuration
+# Should use process.env.VITE_API_URL instead of localhost
+```
+
+#### 2. **Database Connection Issues**
+**Problem**: Backend can't connect to MongoDB Atlas
+**Solutions**:
+```bash
+# Verify connection string format
+# Should be: mongodb+srv://username:password@cluster.mongodb.net/dbname
+
+# Check IP whitelist
+# In MongoDB Atlas, ensure 0.0.0.0/0 is allowed
+
+# Test connection locally
+# node -e "require('mongoose').connect(process.env.MONGODB_URI)"
+```
+
+#### 3. **Build Failures**
+**Problem**: Vercel build fails
+**Solutions**:
+```bash
+# Ensure package.json has build script
+# "build": "vite build"
+
+# Check for TypeScript errors
+# npm run build should complete without errors
 
 # Check environment variables
-vercel env ls
+# All required variables must be set
+```
 
-# Redeploy
-vercel --prod
+#### 4. **API 404 Errors**
+**Problem**: Frontend can't reach backend API
+**Solutions**:
+```bash
+# Check backend is running
+# Verify API endpoints exist
+
+# Check Vercel environment variables
+# VITE_API_URL must match deployed backend URL
+
+# Check CORS configuration
+# Backend must allow frontend origin
+```
+
+#### 5. **CORS Errors**
+**Problem**: Frontend can't reach backend API due to CORS
+**Solutions**:
+```bash
+# Update CORS origins in backend
+```
+
+#### 6. **Environment Variables**
+**Problem**: Environment variables not set correctly
+**Solutions**:
+```bash
+# Ensure all environment variables are set
+```
+
+### Debug Commands
+
+#### Check Vercel Logs
+```bash
+vercel logs
+```
+
+#### Check Environment Variables
+```bash
+vercel env ls
+```
+
+#### Redeploy with Changes
+```bash
+vercel --prod --yes
 ```

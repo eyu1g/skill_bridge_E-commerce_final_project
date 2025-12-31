@@ -5,6 +5,11 @@ npm-debug.log*
 
 # Env
 .env
+.env.local
+
+# Database
+*.db
+dev.db
 
 # Prisma/SQLite
 prisma/dev.db
@@ -16,3 +21,10 @@ logs
 
 # Coverage
 coverage/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db

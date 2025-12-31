@@ -1,10 +1,10 @@
 // Load environment variables first
 require('dotenv').config();
 
-// Temporary fix for deployment
+// Use MongoDB Atlas for deployment
 if (!process.env.MONGODB_URI) {
   process.env.MONGODB_URI = 'mongodb+srv://SheRise-MVP:Sherise123@cluster0.tsckxqi.mongodb.net/test?retryWrites=true&w=majority';
-  console.log('Using hardcoded MongoDB URI for deployment');
+  console.log('Using MongoDB Atlas for deployment');
 }
 
 if (!process.env.JWT_SECRET) {

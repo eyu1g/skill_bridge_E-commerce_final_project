@@ -17,7 +17,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://*.vercel.app'], // Allow local dev and Vercel production
+  origin: ['http://localhost:5173', 'https://skill-bridge-e-commerce-final-proje.vercel.app', 'https://skill-bridge-e-commerce-final-project.onrender.com'], // Allow local dev and specific deployed URLs
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']

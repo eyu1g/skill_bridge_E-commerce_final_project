@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
-  res.json(baseResponse({ Success: true, Message: 'SkillBridge E-commerce API', Object: null, Errors: null }));
+  res.json(baseResponse({ Success: true, Message: 'SkillBridge E-commerce API - v2', Object: null, Errors: null }));
 });
 
 app.use('/api/auth', authRoutes);

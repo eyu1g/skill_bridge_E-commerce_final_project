@@ -1,9 +1,5 @@
-# MongoDB connection string
+# Environment Variables for Render
 MONGODB_URI=mongodb+srv://SheRise-MVP:Sherise123@cluster0.tsckxqi.mongodb.net/skillbridge?retryWrites=true&w=majority
-
-# JWT secret
 JWT_SECRET=super_strong_secret_key_change_me_123
-
-# Server configuration
 PORT=3000
-NODE_ENV=development
+NODE_ENV=production

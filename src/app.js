@@ -9,6 +9,7 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
+const healthRoutes = require('./routes/health');
 const { notFound, errorHandler } = require('./middleware/errors');
 const { baseResponse } = require('./utils/response');
 const { authenticate, authorizeRoles } = require('./middleware/auth');
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/health', healthRoutes);
 // app.use('/api/orders', orderRoutes); // Temporarily disabled due to file system issues
 
 // Temporary orders endpoints

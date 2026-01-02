@@ -1,0 +1,9 @@
+COPY THIS EXACTLY TO RENDER MONGODB_URI:
+
+mongodb+srv://SheRise-MVP:Sherise123@cluster0.tsckxqi.mongodb.net/skillbridge?retryWrites=true&w=majority
+
+IMPORTANT:
+- No extra spaces
+- No changes to any character
+- Copy exactly as shown above
+- Make sure NODE_ENV is set to "production"
